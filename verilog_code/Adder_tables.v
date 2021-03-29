@@ -27,13 +27,8 @@ module logAddition (X,Y,Sx,Sy,Z,Sz);
 	
 	
 	Tables Tables1();
-	//the reason I dont have bits-1 here, is because the last bit is for the sign. So the actual size of the number
-	//is still bits, it just happens to have another sign bit added on.
 	input signed [bits:0] X,Y;
 	input Sx,Sy;
-	//reg [bits:0] X,Y;
-	//reg Sx,Sy;
-	//Result F will be the final output.
 	output [output_bits-1:0] Z;
 	reg signed	[output_bits-1:0] Z;
 	output Sz;
