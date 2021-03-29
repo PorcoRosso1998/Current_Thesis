@@ -38,7 +38,6 @@ module logAddition (X,Y,Sx,Sy,Z,Sz);
 	reg signed	[output_bits-1:0] Z;
 	output Sz;
 	reg signed Sz;
-	//test
 	//I do the same thing here to insure that the difference is the same size.
 	wire[table_bits-1 :table_bits-output_bits] diff;
 	abSubtraction #(output_bits) diffXY(
@@ -56,45 +55,31 @@ module logAddition (X,Y,Sx,Sy,Z,Sz);
 	
 	always @(*)
 	begin
-		$display("X = %b, Y = %b",X,Y);
-		//This portion here scrapes off the last bits of x and y to determine their sign
 		if(Sx == Sy)
 		begin
 			if(X > Y)
 			begin
 				//These portions add all of the bits except for the last as that is determined by the sign bit.
-				$display("Test1");
 				Z = {deltaP[output_bits-1:0]+X[output_bits-1:0]};
 				Sz = Sx;
-				$display("DIFF = %b",diff);
-				$display("Z = %b",Z);
 			end
 			else
 			begin
-				$display("Test2");
 				Z = {deltaP[output_bits-1:0]+Y[output_bits-1:0]};
 				Sz = Sy;
-				$display("DIFF = %b",diff);
-				$display("Z = %b",Z);
 			end
 		end
 		else
 		begin
 			if(X > Y )
 			begin
-				$display("Test3");
 				Z = {deltaM[output_bits-1:0]+X[output_bits-1:0]};
 				Sz = Sx;
-				$display("DIFF = %b",diff);
-				$display("Z = %b",Z);
 			end
 			else
 			begin
-				$display("Test4");
 				Z = {deltaM[output_bits-1:0]+Y[output_bits-1:0]};
 				Sz = Sy;
-				$display("DIFF = %b",diff);
-				$display("Z = %b",Z);
 			end
 		end
 	end
