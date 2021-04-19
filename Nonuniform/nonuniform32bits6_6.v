@@ -1,8 +1,8 @@
 module Tables();
 	reg [11:0] Dplus[127:0];
 	reg [11:0] Dminus[127:0];
-	reg [5:0] DminusInteger[31:0];
-	reg [5:0] DplusInteger[31:0];
+	reg [11:0] DminusInteger[31:0];
+	reg [11:0] DplusInteger[31:0];
 	initial begin
 		Dminus[1] = 12'b111001_011110;
 		Dminus[2] = 12'b111010_011101;
