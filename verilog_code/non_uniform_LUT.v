@@ -55,29 +55,12 @@ module logAddition_nonUniform (X,Y,Sx,Sy,Z,Sz);
 		if(diff[bits - 1: fractional_bits] >= 2)
 		begin
 			deltaP = Tables1.DplusInteger[diff[bits-1: fractional_bits]];
-	        deltaM = Tables1.DminusInteger[diff[bits-1: fractional_bits]];
-			if (X == 18'b000001110110100000 && Y == 18'b000001011011100101 )
-			begin
-				$display ("INTEGER\n");
-				$display("IDEAL DM: %b\n", Tables1.DminusInteger[3]);
-				$display ("x: %f, y: %f\n", $itor(X)*(2**(-9.0)),$itor(Y)*(2**(-9.0)));
-				$display ("DIFF: %b\n", diff[bits: fractional_bits]);
-				$display("DP: %b , DM: %b",deltaP,deltaM);
-				$display("X: %b \nD: %b\n",X,deltaM);
-			end
+	        	deltaM = Tables1.DminusInteger[diff[bits-1: fractional_bits]];
 		end
 		else
 		begin 
 			deltaP = Tables1.Dplus[diff];
 			deltaM = Tables1.Dminus[diff];
-			if (X == 18'b000001110110100000 && Y == 18'b000001011011100101 )
-			begin
-				$display ("DECIMAL\n");
-				$display ("x: %f, y: %f\n", $itor(X)*(2**(-9.0)),$itor(Y)*(2**(-9.0)));
-				$display ("DIFF: %b\n", diff);
-				$display("DP: %b , DM: %b",deltaP,deltaM);
-				$display("X: %b \nD: %b\n",X,deltaM);
-			end
 		end
 		if(Sx == Sy)
 		begin
