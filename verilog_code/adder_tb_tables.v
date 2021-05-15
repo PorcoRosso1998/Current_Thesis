@@ -16,7 +16,6 @@ module adder_tb_tables;
 	integer status;
 	integer count;
 
-	// module logAddition_bit
 	logAddition test(X,Y,Sx,Sy,Z,Sz);
 					 
 	task TEST_ADDER;
