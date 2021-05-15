@@ -39,9 +39,6 @@ module logAddition (X,Y,Sx,Sy,Z,Sz);
 	
 	wire signed[output_bits-1:0] deltaP;
 	wire signed[output_bits-1:0] deltaM;
-	//This portion will return the correct Dplus and Dminus values with the correct index.
-	//For example, with a 20 bit table, and a desired 5 bit output, the table will return bits
-	//19-15.
 	assign deltaP = deltaTables1.Dplus[diff][table_bits-1:table_bits-output_bits];
 	assign deltaM = deltaTables1.Dminus[diff][table_bits-1:table_bits-output_bits];
 	
