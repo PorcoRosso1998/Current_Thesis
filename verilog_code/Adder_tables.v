@@ -13,9 +13,8 @@ module abSubtraction(X, Y, diff);
 endmodule
 
 module logAddition (X,Y,Sx,Sy,Z,Sz);
-	//This is the parameter for the bits of the input.	
-	`ifdef Table
-		`include `Table
+	`ifdef deltaTable
+		`include `deltaTable
 	`endif
 	`define bit_size 22
 	//I edited this line
@@ -26,7 +25,7 @@ module logAddition (X,Y,Sx,Sy,Z,Sz);
 
 	
 	
-	Tables Tables1();
+	Tables deltaTables1();
 	input signed [bits:0] X,Y;
 	input Sx,Sy;
 	output [output_bits-1:0] Z;
@@ -45,8 +44,8 @@ module logAddition (X,Y,Sx,Sy,Z,Sz);
 	//This portion will return the correct Dplus and Dminus values with the correct index.
 	//For example, with a 20 bit table, and a desired 5 bit output, the table will return bits
 	//19-15.
-	assign deltaP = Tables1.Dplus[diff][table_bits-1:table_bits-output_bits];
-	assign deltaM = Tables1.Dminus[diff][table_bits-1:table_bits-output_bits];
+	assign deltaP = deltaTables1.Dplus[diff][table_bits-1:table_bits-output_bits];
+	assign deltaM = deltaTables1.Dminus[diff][table_bits-1:table_bits-output_bits];
 	
 	always @(*)
 	begin
