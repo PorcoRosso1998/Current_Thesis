@@ -21,7 +21,6 @@ module logAddition (X,Y,Sx,Sy,Z,Sz);
 	parameter bits = `bit_size - 1;
 	parameter output_bits = `bit_size;
 	parameter table_bits = `bit_size;
-	//Ask about how to do this without system verilog.
 
 	
 	
