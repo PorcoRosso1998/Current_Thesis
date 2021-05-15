@@ -17,7 +17,6 @@ module logAddition (X,Y,Sx,Sy,Z,Sz);
 		`include `deltaTable
 	`endif
 	`define bit_size 22
-	//I edited this line
 	parameter bits = `bit_size - 1;
 	parameter output_bits = `bit_size;
 	parameter table_bits = `bit_size;
