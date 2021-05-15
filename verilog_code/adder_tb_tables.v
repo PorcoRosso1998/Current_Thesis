@@ -18,7 +18,7 @@ module adder_tb_tables;
 
 	logAddition test(X,Y,Sx,Sy,Z,Sz);
 					 
-	task TEST_ADDER;
+	 task TEST_ADDER;
 	 input [`bits:0] x;
 	 input sx;
 	 input [`bits:0] y;
