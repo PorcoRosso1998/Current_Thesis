@@ -48,11 +48,11 @@ module logAddition_nonUniform (X,Y,Sx,Sy,Z,Sz);
 	always @(*)
 	begin
 		diff = (X >= Y) ? (X-Y) : (Y-X);
-		if( diff[output_size-1] == 1 )
+		if (diff[output_size-1] == 1)
 		begin
 			diff = ~diff + 1;
 		end
-		if(diff[bits - 1: fractional_bits] >= 2)
+		if (diff[bits - 1: fractional_bits] >= 2)
 		begin
 			deltaP = Tables1.DplusInteger[diff[bits-1: fractional_bits]];
 	        	deltaM = Tables1.DminusInteger[diff[bits-1: fractional_bits]];
@@ -62,9 +62,9 @@ module logAddition_nonUniform (X,Y,Sx,Sy,Z,Sz);
 			deltaP = Tables1.Dplus[diff];
 			deltaM = Tables1.Dminus[diff];
 		end
-		if(Sx == Sy)
+		if (Sx == Sy)
 		begin
-			if(X > Y)
+			if (X > Y)
 			begin
 				//These portions add all of the bits except for the last as that is determined by the sign bit.
 				Z = {deltaP[output_bits-1:0]+X[output_bits-1:0]};
@@ -78,7 +78,7 @@ module logAddition_nonUniform (X,Y,Sx,Sy,Z,Sz);
 		end
 		else
 		begin
-			if(X > Y )
+			if (X > Y )
 			begin
 				Z = {deltaM[output_bits-1:0]+X[output_bits-1:0]};
 				Sz = Sx;
