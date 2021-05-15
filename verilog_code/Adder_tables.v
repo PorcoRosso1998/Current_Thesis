@@ -1,6 +1,6 @@
 module abSubtraction(X, Y, diff);
 	parameter output_size = 22;
-    input signed[output_size-1:0] X,Y;
+        input signed[output_size-1:0] X,Y;
 	output reg[output_size-1:0] diff;
 	always @(*)
 	begin
